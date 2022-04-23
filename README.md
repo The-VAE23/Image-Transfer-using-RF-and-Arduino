@@ -12,5 +12,7 @@ Once image is received the image will be saved with current date and time as its
 Supported image sizes are,
 
 16:9 - 240p,360p,480p,720p,1080p
+
 4:3 - 480p,600p,720p,768p,960p,1050p,1080p
+
 Sample image 135x180p
