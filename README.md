@@ -1,5 +1,5 @@
 # Image-Transfer-using-RF-and-Arduino
-This repo stores and documents the code required for transmitting an image over RF. This is a part of a college project and the code might not be optimal to use for commercial applications 
+This repo stores and documents the code required for transmitting an image over RF. This code is a Proof of Concept and might not be optimal to use for commercial applications
 
 The code consits of two parts the receiver and transmitter codes. To use, make the necessary circuit on the Arduino's and upload one of the Arduinos with the transmitter code and one with the receiver code. Note the port in the Arduino IDE during the upload process.
 
