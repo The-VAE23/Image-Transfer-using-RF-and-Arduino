@@ -37,9 +37,32 @@ def sendIMGdata(IMG: np.array,AR: serial):
         else:
             data = "0"
         if int(data) == 1:
-            writeSerial(AR,IMG[0,i])
-            i+=1
+            if IMG.size - i > 7:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])+','+str(IMG[0,i+3])+','+str(IMG[0,i+4])+','+str(IMG[0,i+5])+','+str(IMG[0,i+6])+','+str(IMG[0,i+7])
+                writeSerial(AR,string)
+            elif IMG.size - i == 7:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])+','+str(IMG[0,i+3])+','+str(IMG[0,i+4])+','+str(IMG[0,i+5])+','+str(IMG[0,i+6])
+                writeSerial(AR,string)
+            elif IMG.size - i == 6:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])+','+str(IMG[0,i+3])+','+str(IMG[0,i+4])+','+str(IMG[0,i+5])
+                writeSerial(AR,string)
+            elif IMG.size - i == 5:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])+','+str(IMG[0,i+3])+','+str(IMG[0,i+4])
+                writeSerial(AR,string)
+            elif IMG.size - i == 4:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])+','+str(IMG[0,i+3])
+                writeSerial(AR,string)
+            elif IMG.size - i == 3:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])+','+str(IMG[0,i+2])
+                writeSerial(AR,string)
+            elif IMG.size - i == 2:
+                string = str(IMG[0,i])+','+str(IMG[0,i+1])
+                writeSerial(AR,string)
+            elif IMG.size - i == 1:
+                string = str(IMG[0,i])
+                writeSerial(AR,string)
+            i+=8
+            i=i if i < IMG.size else IMG.size
             print(str(i)+'/'+str(IMG.size))
     time.sleep(1)
     writeSerial(AR,"e")
-    print("Image sent")
